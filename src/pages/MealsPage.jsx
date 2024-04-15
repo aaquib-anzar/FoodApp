@@ -18,10 +18,11 @@ export async function loader({ params }) {
   const response = await fetch(
     `https://httprequest-bd06d-default-rtdb.firebaseio.com/${type}.json`
   );
-
+  
   if (!response.ok) {
     throw new Error("Something went wrong");
   }
   const data = await response.json();
+  
   return ({Data:data,Type:type});
 }

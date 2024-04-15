@@ -3,10 +3,10 @@ import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 import { useEffect, useState } from "react";
 
-const MealsAvailable = ({loadedData}) => {
-  const{Data,Type} = loadedData
+const MealsAvailable = ({ loadedData }) => {
+  const { Data, Type } = loadedData;
   const [meals, setMeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const loadedMeals = [];
 
@@ -19,8 +19,7 @@ const MealsAvailable = ({loadedData}) => {
       });
     }
     setMeals(loadedMeals);
-
-  },[Type])
+  }, [Type]);
   let content = <p className={classes.error}>Failed to fetch.</p>;
   if (isLoading) {
     content = <p className={classes.loading}>Loading..</p>;
